@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwr-LV-53W">
-                                <rect key="frame" x="40" y="220" width="240" height="128"/>
+                                <rect key="frame" x="36" y="164" width="240" height="240"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-um-tPA">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="-4" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Pick" id="rok-qV-WS2">
                                         <connections>
@@ -38,24 +38,47 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
+                                <rect key="frame" x="108" y="164" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCH-LR-nvo">
+                                <rect key="frame" x="108" y="374" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OCH-LR-nvo" secondAttribute="trailing" constant="95" id="4W2-zZ-eoz"/>
+                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="4cG-Bw-TKR"/>
+                            <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-24" id="96X-XE-XD4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" constant="20" id="BQA-GP-uhN"/>
+                            <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="120" id="Bjj-ah-KEK"/>
+                            <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="180" id="EDd-Ec-XpL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CAa-um-tPA" secondAttribute="trailing" constant="-20" id="KDh-C0-hro"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBu-Fn-LQp" secondAttribute="trailing" constant="95" id="KRW-9Q-SDt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" constant="20" id="LSh-Fh-Lsd"/>
-                            <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="176" id="M0m-l9-EIb"/>
+                            <constraint firstItem="OCH-LR-nvo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="88" id="Lvb-dX-mS0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="MEu-96-deG"/>
-                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="jo2-cM-wrn"/>
+                            <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="OCH-LR-nvo" secondAttribute="bottom" constant="120" id="Nel-WO-ggJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="TbJ-9K-HBL"/>
+                            <constraint firstItem="dwr-LV-53W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="fmc-Ej-bmh"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="mPp-I7-G29"/>
-                            <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qDd-k5-4t8"/>
+                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="qFV-04-KI5"/>
+                            <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="180" id="vLU-gG-IHt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="wSZ-VE-URA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="x2y-Wc-WLD"/>
+                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="88" id="zlt-Lx-fmc"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bottomTextField" destination="OCH-LR-nvo" id="41r-O4-VEZ"/>
                         <outlet property="cameraButton" destination="ELF-3s-LyT" id="ERo-KW-2pM"/>
                         <outlet property="imagePickerView" destination="dwr-LV-53W" id="PWi-aa-vWe"/>
+                        <outlet property="topTextField" destination="UBu-Fn-LQp" id="Ehi-e5-8XI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

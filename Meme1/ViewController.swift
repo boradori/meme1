@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    let topFieldDelegate = TopTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
-        self.topTextField.delegate = self
+        self.topTextField.delegate = topFieldDelegate
         self.bottomTextField.delegate = self
     }
     
@@ -62,29 +63,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        topTextField.text = ""
-        bottomTextField.text = ""
+//        topTextField.text = ""
+//        bottomTextField.text = ""
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return true
     }
-    
+//    
 //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 //                // Figure out what the new text will be, if we return true
 //        var newText: NSString = textField.text!
 //        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
 //        
 //                // hide the label if the newText will be an empty string
-//        self.topTextField.hidden = (newText.length == 0)
-//        self.bottomTextField.hidden = (newText.length == 0)
+////        self.topTextField.hidden = (newText.length == 0)
+////        self.bottomTextField.hidden = (newText.length == 0)
 //        
 //                // Write the length of newText into the label
-//        self.topTextField.text = String(newText.length)
-//        self.bottomTextField.text = String(newText.length)
+//        self.topTextField.text = newText as String
+//        self.bottomTextField.text = newText as String
 //        
 //                // returning true gives the text field permission to change its text
-//        return true;
+//        return false;
 //    }
 
     

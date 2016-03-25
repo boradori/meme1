@@ -22,13 +22,15 @@ class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
         return false
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.text == "BOTTOM" {
+            textField.text = ""
+        }
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        
     }
     
 }

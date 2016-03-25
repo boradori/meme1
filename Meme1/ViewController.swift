@@ -21,9 +21,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topTextField.borderStyle = .None
         topTextField.text = "TOP"
         topTextField.textAlignment = .Center
         topTextField.defaultTextAttributes = memeTextAttributes
+        
+        bottomTextField.borderStyle = .None
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -65,9 +68,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
-        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSForegroundColorAttributeName: UIColor.clearColor(),
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: 0.8
+        NSStrokeWidthAttributeName: 3.0
     ]
     
     

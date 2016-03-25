@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     
     let topFieldDelegate = TopTextFieldDelegate()
+    let bottomFieldDelegate = BottomTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
         self.topTextField.delegate = topFieldDelegate
-        self.bottomTextField.delegate = self
+        self.bottomTextField.delegate = bottomFieldDelegate
     }
     
     
@@ -61,33 +62,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-//        topTextField.text = ""
-//        bottomTextField.text = ""
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return true
-    }
-//    
-//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-//                // Figure out what the new text will be, if we return true
-//        var newText: NSString = textField.text!
-//        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
-//        
-//                // hide the label if the newText will be an empty string
-////        self.topTextField.hidden = (newText.length == 0)
-////        self.bottomTextField.hidden = (newText.length == 0)
-//        
-//                // Write the length of newText into the label
-//        self.topTextField.text = newText as String
-//        self.bottomTextField.text = newText as String
-//        
-//                // returning true gives the text field permission to change its text
-//        return false;
-//    }
-
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),

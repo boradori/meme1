@@ -1,15 +1,15 @@
 //
-//  TopTextFieldDelegate.swift
+//  BottomTextFieldDelegate.swift
 //  Meme1
 //
-//  Created by Youngsun Paik on 3/23/16.
+//  Created by Youngsun Paik on 3/25/16.
 //  Copyright © 2016 Youngsun Paik. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
+class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var newText: NSString = textField.text!
@@ -18,7 +18,7 @@ class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
         
         textField.text = newText as String
         
-        
+
         return false
     }
     
@@ -26,9 +26,9 @@ class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func textFieldDidEndEditing(textField: UITextField) {
         
     }
-
+    
 }

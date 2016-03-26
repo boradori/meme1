@@ -23,7 +23,8 @@ class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "BOTTOM" {
+        if textField.placeholder == "BOTTOM" {
+            textField.placeholder = ""
             textField.text = ""
         }
     }

@@ -22,14 +22,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         topTextField.borderStyle = .None
-        topTextField.text = "TOP"
         topTextField.textAlignment = .Center
         topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.attributedPlaceholder = NSAttributedString(string: "TOP", attributes: memeTextAttributes)
         
         bottomTextField.borderStyle = .None
-        bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
         
         self.topTextField.delegate = topFieldDelegate
         self.bottomTextField.delegate = bottomFieldDelegate
@@ -68,9 +68,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
-        NSForegroundColorAttributeName: UIColor.clearColor(),
+        NSForegroundColorAttributeName: UIColor.whiteColor(),
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: 3.0
+        NSStrokeWidthAttributeName: -3.0
     ]
     
     

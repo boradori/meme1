@@ -23,7 +23,8 @@ class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "TOP" {
+        if textField.placeholder == "TOP" {
+            textField.placeholder = ""
             textField.text = ""
         }
     }

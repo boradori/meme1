@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwr-LV-53W">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwr-LV-53W">
                                 <rect key="frame" x="40" y="164" width="240" height="240"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-um-tPA">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-um-tPA">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Pick" id="rok-qV-WS2">
@@ -38,12 +38,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
                                 <rect key="frame" x="112" y="178" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCH-LR-nvo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCH-LR-nvo">
                                 <rect key="frame" x="112" y="358" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -55,7 +55,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OCH-LR-nvo" secondAttribute="trailing" constant="95" id="30D-oI-fTA"/>
                             <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="96" id="3wB-6Z-P9e"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="5fv-h9-7vc">
-                                <variation key="heightClass=compact" constant="20"/>
+                                <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="bottom" secondItem="CAa-um-tPA" secondAttribute="top" id="6m2-Ax-ynE"/>
                             <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="OCH-LR-nvo" secondAttribute="leading" id="8nL-gO-1ii"/>
@@ -67,17 +67,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="CAa-um-tPA" secondAttribute="trailing" constant="-20" id="QVw-p9-nUk"/>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="trailing" secondItem="UBu-Fn-LQp" secondAttribute="trailing" id="TbM-zl-oKe"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WKx-YR-59i">
-                                <variation key="heightClass=compact" constant="-8"/>
+                                <variation key="heightClass=compact" constant="-22"/>
                             </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="WS8-Eg-AFu"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Y0O-MD-bYO"/>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="leading" secondItem="UBu-Fn-LQp" secondAttribute="leading" id="c41-Vn-qjb"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="bottom" secondItem="OCH-LR-nvo" secondAttribute="bottom" id="gMN-57-div"/>
-                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="i1Z-rg-S5g"/>
+                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="i1Z-rg-S5g">
+                                <variation key="heightClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="OCH-LR-nvo" secondAttribute="centerX" id="ipU-FT-8F8"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mI1-MD-yqK"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-24" id="qtq-v0-fM8"/>
-                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="top" id="v3F-ll-MRr"/>
+                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="top" id="v3F-ll-MRr">
+                                <variation key="heightClass=compact" constant="28"/>
+                            </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="w8y-er-luX"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yAv-fQ-KQ4"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="top" id="zin-cF-G3R"/>

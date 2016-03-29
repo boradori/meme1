@@ -26,55 +26,43 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
-                                <rect key="frame" x="112" y="178" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-um-tPA">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="rok-qV-WS2">
+                                    <barButtonItem systemItem="add" id="rok-qV-WS2">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="zkx-E7-W9F"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="l9o-H3-3GR">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xwB-T8-hd6">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Cam"/>
-                                            <connections>
-                                                <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Sj-E3-wwU"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem style="plain" systemItem="camera" id="l9o-H3-3GR">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="47Z-If-pGZ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="cTl-n9-ZmU">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e8Z-vn-Uov">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Share"/>
-                                            <connections>
-                                                <action selector="shareImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y4n-i0-eFn"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem style="plain" systemItem="action" id="cTl-n9-ZmU">
                                         <connections>
                                             <action selector="shareImage:" destination="BYZ-38-t0r" id="svI-Up-GYc"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
+                                <rect key="frame" x="112" y="178" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="30" id="1tw-Bi-tok">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="140" id="3nh-5f-YsD"/>
-                            <constraint firstItem="OCH-LR-nvo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="5ft-nw-E5O"/>
+                            <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="140" id="3nh-5f-YsD">
+                                <variation key="heightClass=regular-widthClass=compact" constant="264"/>
+                            </constraint>
+                            <constraint firstItem="OCH-LR-nvo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="5ft-nw-E5O">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="UBu-Fn-LQp" secondAttribute="centerX" id="AJ3-Oz-jDO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CAa-um-tPA" secondAttribute="trailing" id="CHJ-kx-7QT">
                                 <variation key="heightClass=compact" constant="-20"/>
@@ -87,23 +75,27 @@
                                 <variation key="heightClass=compact" constant="24"/>
                             </constraint>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="-50" id="Mrq-E1-pqh">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-115"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-51"/>
                             </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="O7V-f7-zGM"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pag-Ta-SHu">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="-43" id="ROP-Lb-qz6">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-109"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-49"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="OCH-LR-nvo" secondAttribute="trailing" id="TLE-K2-uuP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UBu-Fn-LQp" secondAttribute="trailing" constant="4" id="TMq-A4-pfg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBu-Fn-LQp" secondAttribute="trailing" constant="4" id="TMq-A4-pfg">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" constant="12" id="UdB-tY-YLL">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
                             </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VxA-oM-aqQ"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="OCH-LR-nvo" secondAttribute="centerX" id="Wky-DP-5NC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OCH-LR-nvo" secondAttribute="trailing" constant="4" id="Yd1-qt-xy0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OCH-LR-nvo" secondAttribute="trailing" constant="4" id="Yd1-qt-xy0">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="dwr-LV-53W" secondAttribute="centerX" id="a3L-aa-jvL"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bhv-bF-TbX">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
@@ -112,7 +104,9 @@
                             <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="eRI-AJ-2I3">
                                 <variation key="heightClass=regular-widthClass=compact" constant="79"/>
                             </constraint>
-                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="gPk-Qk-ask"/>
+                            <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="gPk-Qk-ask">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" id="gWh-Iu-Umf">
                                 <variation key="heightClass=compact" constant="-24"/>
                             </constraint>
@@ -209,7 +203,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bottomTextField" destination="OCH-LR-nvo" id="41r-O4-VEZ"/>
-                        <outlet property="cameraButton" destination="xwB-T8-hd6" id="xyV-tb-d4E"/>
                         <outlet property="imagePickerView" destination="dwr-LV-53W" id="PWi-aa-vWe"/>
                         <outlet property="shareButton" destination="cTl-n9-ZmU" id="m91-DL-uxl"/>
                         <outlet property="toolBar" destination="CAa-um-tPA" id="vJK-MY-Lfb"/>

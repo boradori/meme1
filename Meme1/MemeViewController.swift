@@ -20,9 +20,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let topFieldDelegate = TopTextFieldDelegate()
     let bottomFieldDelegate = BottomTextFieldDelegate()
     
-//    var memes: [Meme]!
-    var memedImage: UIImage!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -70,16 +70,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="30" id="1tw-Bi-tok"/>
+                            <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="30" id="1tw-Bi-tok">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="140" id="3nh-5f-YsD"/>
                             <constraint firstItem="OCH-LR-nvo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="5ft-nw-E5O"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="centerX" secondItem="UBu-Fn-LQp" secondAttribute="centerX" id="AJ3-Oz-jDO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CAa-um-tPA" secondAttribute="trailing" id="CHJ-kx-7QT">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="74" id="EIG-fb-siD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dwr-LV-53W" secondAttribute="bottom" constant="74" id="EIG-fb-siD">
+                                <variation key="heightClass=compact" constant="44"/>
+                            </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-22" id="KaW-4w-yfv"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="dwr-LV-53W" secondAttribute="leading" id="KcD-9I-ykL"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dwr-LV-53W" secondAttribute="leading" id="KcD-9I-ykL">
+                                <variation key="heightClass=compact" constant="24"/>
+                            </constraint>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="UBu-Fn-LQp" secondAttribute="bottom" constant="-50" id="Mrq-E1-pqh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="O7V-f7-zGM"/>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pag-Ta-SHu">
@@ -99,10 +105,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OCH-LR-nvo" secondAttribute="bottom" constant="74" id="cqQ-Eq-SMo"/>
                             <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="eRI-AJ-2I3"/>
                             <constraint firstItem="UBu-Fn-LQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="gPk-Qk-ask"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" id="gWh-Iu-Umf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dwr-LV-53W" secondAttribute="trailing" id="gWh-Iu-Umf">
+                                <variation key="heightClass=compact" constant="-24"/>
+                            </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CAa-um-tPA" secondAttribute="bottom" id="hwv-tg-FSW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="OCH-LR-nvo" secondAttribute="leading" id="k1Q-8I-vCY"/>
-                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rrN-Yb-ITb"/>
+                            <constraint firstItem="dwr-LV-53W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rrN-Yb-ITb">
+                                <variation key="heightClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="CAa-um-tPA" firstAttribute="top" secondItem="OCH-LR-nvo" secondAttribute="bottom" constant="30" id="tQI-fm-5hw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UBu-Fn-LQp" secondAttribute="trailing" id="vEK-do-x8w"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UBu-Fn-LQp" secondAttribute="leading" id="yD8-58-qE0"/>

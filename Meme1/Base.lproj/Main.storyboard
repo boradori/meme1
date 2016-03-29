@@ -125,11 +125,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="TMq-A4-pfg"/>
-                                <exclude reference="gPk-Qk-ask"/>
-                                <exclude reference="vEK-do-x8w"/>
-                                <exclude reference="yD8-58-qE0"/>
-                                <exclude reference="yJP-ft-DrN"/>
                                 <exclude reference="KcD-9I-ykL"/>
                                 <exclude reference="Mrq-E1-pqh"/>
                                 <exclude reference="UdB-tY-YLL"/>
@@ -138,6 +133,11 @@
                                 <exclude reference="gWh-Iu-Umf"/>
                                 <exclude reference="rrN-Yb-ITb"/>
                                 <exclude reference="zBO-Ku-b4d"/>
+                                <exclude reference="TMq-A4-pfg"/>
+                                <exclude reference="gPk-Qk-ask"/>
+                                <exclude reference="vEK-do-x8w"/>
+                                <exclude reference="yD8-58-qE0"/>
+                                <exclude reference="yJP-ft-DrN"/>
                                 <exclude reference="3nh-5f-YsD"/>
                                 <exclude reference="5ft-nw-E5O"/>
                                 <exclude reference="ROP-Lb-qz6"/>
@@ -161,12 +161,12 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="vEK-do-x8w"/>
-                                <include reference="yD8-58-qE0"/>
-                                <include reference="yJP-ft-DrN"/>
                                 <include reference="KcD-9I-ykL"/>
                                 <include reference="gWh-Iu-Umf"/>
                                 <include reference="rrN-Yb-ITb"/>
+                                <include reference="vEK-do-x8w"/>
+                                <include reference="yD8-58-qE0"/>
+                                <include reference="yJP-ft-DrN"/>
                                 <include reference="TLE-K2-uuP"/>
                                 <include reference="k1Q-8I-vCY"/>
                                 <include reference="1tw-Bi-tok"/>
@@ -180,13 +180,13 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="TMq-A4-pfg"/>
-                                <include reference="gPk-Qk-ask"/>
                                 <include reference="Mrq-E1-pqh"/>
                                 <include reference="UdB-tY-YLL"/>
                                 <include reference="bhv-bF-TbX"/>
                                 <include reference="eRI-AJ-2I3"/>
                                 <include reference="zBO-Ku-b4d"/>
+                                <include reference="TMq-A4-pfg"/>
+                                <include reference="gPk-Qk-ask"/>
                                 <include reference="3nh-5f-YsD"/>
                                 <include reference="5ft-nw-E5O"/>
                                 <include reference="ROP-Lb-qz6"/>
@@ -203,6 +203,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bottomTextField" destination="OCH-LR-nvo" id="41r-O4-VEZ"/>
+                        <outlet property="cameraButton" destination="l9o-H3-3GR" id="Bc1-os-Wlq"/>
                         <outlet property="imagePickerView" destination="dwr-LV-53W" id="PWi-aa-vWe"/>
                         <outlet property="shareButton" destination="cTl-n9-ZmU" id="m91-DL-uxl"/>
                         <outlet property="toolBar" destination="CAa-um-tPA" id="vJK-MY-Lfb"/>

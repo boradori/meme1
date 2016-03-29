@@ -67,8 +67,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return true
     }
     
-    
-    
     override func viewWillAppear(animated: Bool) { // Hide and show
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) // Camera button is only enabled when source type has camera (actual device)
         subscribeToKeyboardNotifications() // NSNotificationCenter needs subscription to be used.

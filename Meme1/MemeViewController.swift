@@ -17,17 +17,14 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     
-    let topFieldDelegate = TopTextFieldDelegate()
-    let bottomFieldDelegate = BottomTextFieldDelegate()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTextField(topTextField, defaultText: "TOP")
         setupTextField(bottomTextField, defaultText: "BOTTOM")
         
-        topTextField.delegate = topFieldDelegate
-        bottomTextField.delegate = bottomFieldDelegate
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         
         // Share button should be disabled until image is picked
         shareButton.enabled = false
@@ -40,6 +37,37 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         textField.defaultTextAttributes = memeTextAttributes
         textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
     }
+    
+    // When textField gets activated, placeholder gets empty.
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.placeholder == "TOP" {
+            textField.placeholder = ""
+        } else if textField.placeholder == "BOTTOM" {
+            textField.placeholder = ""
+        } else {
+            print("placeholder must have either TOP or BOTTOM")
+        }
+    }
+    
+    // Applies changes in textField (this applies to all textFields)
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var newText: NSString = textField.text!
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        
+        textField.text = newText as String
+        
+        
+        return false
+    }
+    
+    // When pressing RETURN, keyboard resigns
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool) { // Hide and show
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) // Camera button is only enabled when source type has camera (actual device)

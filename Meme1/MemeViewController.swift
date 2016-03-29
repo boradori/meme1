@@ -23,33 +23,35 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topTextField.borderStyle = .None
-        topTextField.textAlignment = .Center
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.attributedPlaceholder = NSAttributedString(string: "TOP", attributes: memeTextAttributes)
-        
-        bottomTextField.borderStyle = .None
-        bottomTextField.textAlignment = .Center
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
+        setupTextField(topTextField, defaultText: "TOP")
+        setupTextField(bottomTextField, defaultText: "BOTTOM")
         
         topTextField.delegate = topFieldDelegate
         bottomTextField.delegate = bottomFieldDelegate
         
+        // Share button should be disabled until image is picked
         shareButton.enabled = false
     }
     
-    
-    override func viewWillAppear(animated: Bool) {
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) // enables camera if camera is available.
-        subscribeToKeyboardNotifications()
+    // Setup textField function to make top and bottom textFields
+    func setupTextField(textField: UITextField, defaultText: String) {
+        textField.borderStyle = .None
+        textField.textAlignment = .Center
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) { // Hide and show
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) // Camera button is only enabled when source type has camera (actual device)
+        subscribeToKeyboardNotifications() // NSNotificationCenter needs subscription to be used.
+    }
+    
+    override func viewWillDisappear(animated: Bool) { // Hide and show
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications() // NSNotificationCenter needs to be unsubscribed when view disappears
     }
 
+    // This is swift's embedded function
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage { // info is dictionary containing the original image
             imagePickerView.image = imagePicked
@@ -60,42 +62,68 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-        shareButton.enabled = false
+        shareButton.enabled = false // Don't forget to disable share button
     }
     
+    // Picking an image from album
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
-        shareButton.enabled = true
+        imagePicker.delegate = self // delegate
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary // SourceType is PhotoLibrary
+        presentViewController(imagePicker, animated: true, completion: nil) // Present!
+        shareButton.enabled = true // Share button needs to be enabled after picking an image
     }
     
+    // Picking an image from camera
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
-        shareButton.enabled = true
+        imagePicker.delegate = self // delegate
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera // SourceType is Camera
+        presentViewController(imagePicker, animated: true, completion: nil) // Present!
+        shareButton.enabled = true // Share button needs to be enabled after picking an image
     }
     
+    // Share memedImage
     @IBAction func shareImage(sender: AnyObject) {
         let memedImage = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil) // UIActivityViewController
         
         controller.completionWithItemsHandler = { activity, success, items, error in
-            if success {
-                self.save(memedImage)
-                self.dismissViewControllerAnimated(true, completion: nil)
+            if success { // when activityViewController completes with items
+                self.save(memedImage) // calls save function to save the image
+                self.dismissViewControllerAnimated(true, completion: nil) // and dismiss activityViewController
             }
         }
-        
         presentViewController(controller, animated: true, completion: nil)
     }
     
+    func generateMemedImage() -> UIImage {
+        toolBar.hidden = true // toolBar needs to be hidden when generating memedImage
+        // Render view to an image
+        UIGraphicsBeginImageContext(view.frame.size) // Alright this is the current context (like sketchbook paper)
+    view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true) // Renders a snapshot of the complete view hierarchy as visible onscreen into the current context. (Paste everything on the screen to the sketchbook paper)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext() // The current image context (grab the snapshot)
+        UIGraphicsEndImageContext() // Job done
+        
+        toolBar.hidden = false // Job's done. Show the toolBar again.
+        
+        return memedImage
+    }
+    
+    func save(memedImage: UIImage) {
+        // Create the meme
+        let meme = Meme(topText: String(topTextField), bottomText: String(bottomTextField), image: imagePickerView.image!, memedImage: memedImage)
+        // Append the meme to appDelegate's memes array - I saw this from https://discussions.udacity.com/t/share-activityviewcontroller/33609
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme) // memes is an array in AppDelegate.swift
+        
+    }
+    
+    // Text attributes for defaultTextAttributes in setupTextField function
     let memeTextAttributes = [
-        NSStrokeColorAttributeName: UIColor.blackColor(),
-        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSStrokeColorAttributeName: UIColor.blackColor(), // black outline
+        NSForegroundColorAttributeName: UIColor.whiteColor(), // fill with white
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: -3.0
     ]
@@ -128,28 +156,5 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func generateMemedImage() -> UIImage {
-        
-        toolBar.hidden = true
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true) // Renders a snapshot of the complete view hierarchy as visible onscreen into the current context
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext() // The current image context
-        UIGraphicsEndImageContext()
-        
-        toolBar.hidden = false
-        
-        return memedImage
-    }
-    
-    func save(memedImage: UIImage) {
-        // Create the meme
-        let meme = Meme(topText: String(topTextField), bottomText: String(bottomTextField), image: imagePickerView.image!, memedImage: memedImage)
-        // Append the meme to appDelegate's memes array - I saw this from https://discussions.udacity.com/t/share-activityviewcontroller/33609
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
-        
-    }
+
 }

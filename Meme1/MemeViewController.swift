@@ -10,6 +10,7 @@ import UIKit
 
 class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
@@ -38,6 +39,14 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
     }
     
+    // Text attributes for defaultTextAttributes in setupTextField function
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName: UIColor.blackColor(), // black outline
+        NSForegroundColorAttributeName: UIColor.whiteColor(), // fill with white
+        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName: -3.0
+    ]
+    
     // When textField gets activated, placeholder gets empty.
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.placeholder == "TOP" {
@@ -53,11 +62,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var newText: NSString = textField.text!
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
-        
-        
         textField.text = newText as String
-        
-        
         return false
     }
     
@@ -67,14 +72,20 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return true
     }
     
-    override func viewWillAppear(animated: Bool) { // Hide and show
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) // Camera button is only enabled when source type has camera (actual device)
+    // Hide and show
+    override func viewWillAppear(animated: Bool) {
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotifications() // NSNotificationCenter needs subscription to be used.
     }
-    
-    override func viewWillDisappear(animated: Bool) { // Hide and show
+    // Hide and show
+    override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications() // NSNotificationCenter needs to be unsubscribed when view disappears
+    }
+    
+    // Hides status bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     // This is swift's embedded function
@@ -93,19 +104,22 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // Picking an image from album
     @IBAction func pickAnImage(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self // delegate
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary // SourceType is PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil) // Present!
-        shareButton.enabled = true // Share button needs to be enabled after picking an image
+        let photoLibrary = UIImagePickerControllerSourceType.PhotoLibrary
+        pick(photoLibrary)
     }
     
     // Picking an image from camera
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        let camera = UIImagePickerControllerSourceType.Camera
+        pick(camera)
+    }
+    
+    // Pick function
+    func pick(sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self // delegate
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera // SourceType is Camera
-        presentViewController(imagePicker, animated: true, completion: nil) // Present!
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        presentViewController(imagePicker, animated: true, completion: nil)
         shareButton.enabled = true // Share button needs to be enabled after picking an image
     }
     
@@ -146,14 +160,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    // Text attributes for defaultTextAttributes in setupTextField function
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName: UIColor.blackColor(), // black outline
-        NSForegroundColorAttributeName: UIColor.whiteColor(), // fill with white
-        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: -3.0
-    ]
-    
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
             view.frame.origin.y -= getKeyboardHeight(notification)
@@ -181,6 +187,4 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
-    
-
 }

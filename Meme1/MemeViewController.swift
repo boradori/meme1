@@ -35,8 +35,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func setupTextField(textField: UITextField, defaultText: String) {
         textField.borderStyle = .None
         textField.defaultTextAttributes = memeTextAttributes
-        textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
         textField.textAlignment = .Center
+        textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
+        
     }
     
     // Text attributes for defaultTextAttributes in setupTextField function

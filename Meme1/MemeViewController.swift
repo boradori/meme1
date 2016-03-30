@@ -34,9 +34,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Setup textField function to make top and bottom textFields
     func setupTextField(textField: UITextField, defaultText: String) {
         textField.borderStyle = .None
-        textField.textAlignment = .Center
         textField.defaultTextAttributes = memeTextAttributes
         textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
+        textField.textAlignment = .Center
     }
     
     // Text attributes for defaultTextAttributes in setupTextField function

@@ -169,7 +169,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0 // += getKeyboardHeight(notification)
         }
     }
     

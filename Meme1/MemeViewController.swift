@@ -10,7 +10,7 @@ import UIKit
 
 class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    
+    // MARK: - Outlets
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
@@ -18,6 +18,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -161,6 +162,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    // MARK: - Keyboard Functions
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
             view.frame.origin.y -= getKeyboardHeight(notification)

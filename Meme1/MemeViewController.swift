@@ -90,12 +90,12 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return true
     }
 
-    // This is swift's embedded function
+    // Tells the delegate that the user picked a still image or movie.
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage { // info is dictionary containing the original image
             imagePickerView.image = imagePicked
             imagePickerView.contentMode = .ScaleAspectFill // contentMode -> flag used to determine how a view lays out its content when its bounds change
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil) // when user finishing picking image, dismiss
         }
     }
     
@@ -121,7 +121,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
-        presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil) // present UIImagePickerController
         shareButton.enabled = true // Share button needs to be enabled after picking an image
     }
     
@@ -136,14 +136,14 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.dismissViewControllerAnimated(true, completion: nil) // and dismiss activityViewController
             }
         }
-        presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil) // present UIActivityViewController
     }
     
     func generateMemedImage() -> UIImage {
         toolBar.hidden = true // toolBar needs to be hidden when generating memedImage
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size) // Alright this is the current context (like sketchbook paper)
-    view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true) // Renders a snapshot of the complete view hierarchy as visible onscreen into the current context. (Paste everything on the screen to the sketchbook paper)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true) // Renders a snapshot of the complete view hierarchy as visible onscreen into the current context. (Paste everything on the screen to the sketchbook paper)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext() // The current image context (grab the snapshot)
         UIGraphicsEndImageContext() // Job done
         
@@ -154,7 +154,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func save(memedImage: UIImage) {
         // Create the meme
-        let meme = Meme(topText: String(topTextField), bottomText: String(bottomTextField), image: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(topText: String(topTextField), bottomText: String(bottomTextField), image: imagePickerView.image!, memedImage: generateMemedImage())
         // Append the meme to appDelegate's memes array - I saw this from https://discussions.udacity.com/t/share-activityviewcontroller/33609
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -174,7 +174,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             view.frame.origin.y = 0 // += getKeyboardHeight(notification)
         }
     }
-    
+    // TODO: - fix selector issue
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)

@@ -158,11 +158,10 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func save(memedImage: UIImage) {
         // Create the meme
         let meme = Meme(topText: String(topTextField), bottomText: String(bottomTextField), image: imagePickerView.image!, memedImage: generateMemedImage())
-        // Append the meme to appDelegate's memes array - I saw this from https://discussions.udacity.com/t/share-activityviewcontroller/33609
+        
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme) // memes is an array in AppDelegate.swift
-        
     }
     
     // MARK: - Keyboard Functions

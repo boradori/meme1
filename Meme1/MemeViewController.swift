@@ -18,9 +18,12 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.blackColor()
         
         setupTextField(topTextField, defaultText: "TOP")
         setupTextField(bottomTextField, defaultText: "BOTTOM")

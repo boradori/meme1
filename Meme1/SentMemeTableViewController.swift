@@ -1,5 +1,5 @@
 //
-//  MemeCollectionViewCell.swift
+//  SentMemeTableViewController.swift
 //  Meme1
 //
 //  Created by Youngsun Paik on 4/17/16.
@@ -8,6 +8,7 @@
 
 import UIKit
 
-class MemeCollectionViewCell: UIViewController {
+class SentMemeTableViewController: UITableView {
+    
     
 }

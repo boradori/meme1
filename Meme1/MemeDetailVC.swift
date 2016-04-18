@@ -18,8 +18,11 @@ class MemeDetailVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.topTextField.placeholder = self.meme.topText
-        self.bottomTextField.placeholder = self.meme.bottomText
+        
+        self.tabBarController?.tabBar.hidden = true
+        
+        self.topTextField.placeholder = self.meme.topText.text
+        self.bottomTextField.placeholder = self.meme.bottomText.text
         self.memedImage.image = self.meme.memedImage
         
     }
@@ -30,3 +33,27 @@ class MemeDetailVC: UIViewController {
     }
     
 }
+//
+//import UIKit
+//
+//class VillainDetailViewController : UIViewController {
+//    
+//    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var label: UILabel!
+//    
+//    var villain: Villain!
+//    
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.label.text = self.villain.name
+//        
+//        self.tabBarController?.tabBar.hidden = true
+//        
+//        self.imageView!.image = UIImage(named: villain.imageName)
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.tabBarController?.tabBar.hidden = false
+//    }
+//}

@@ -86,7 +86,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="memeImageView" destination="cZR-oW-rHa" id="Aly-6j-FJb"/>
+                                    <outlet property="memedImage" destination="cZR-oW-rHa" id="hIJ-Zs-Rgj"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -95,7 +95,17 @@
                             <outlet property="delegate" destination="b9Z-Ci-Ckm" id="g43-Oy-npN"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="rdK-1f-NY8"/>
+                    <navigationItem key="navigationItem" id="rdK-1f-NY8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0mK-R2-4tr">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="YCL-Wx-vxG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="2o8-yi-rHx" id="URG-Jl-UU4"/>
+                        <outlet property="flowLayout" destination="nEz-ff-mOz" id="pVU-ox-i7r"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8O-0q-KMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,6 +201,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
+                                <rect key="frame" x="0.0" y="100" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-um-tPA">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -204,13 +219,13 @@
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="PT1-e5-buL"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="action" id="5hI-tC-q20">
+                                        <connections>
+                                            <action selector="shareImage:" destination="BYZ-38-t0r" id="m8p-UV-8so"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-Fn-LQp">
-                                <rect key="frame" x="0.0" y="100" width="600" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -229,13 +244,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="CAa-um-tPA" secondAttribute="trailing" constant="-20" id="zyu-i2-wqO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HgP-of-RjK">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="5hI-tC-q20">
-                            <connections>
-                                <action selector="shareImage:" destination="BYZ-38-t0r" id="m8p-UV-8so"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="HgP-of-RjK"/>
                     <connections>
                         <outlet property="bottomTextField" destination="OCH-LR-nvo" id="41r-O4-VEZ"/>
                         <outlet property="cameraButton" destination="Xfa-1M-kU8" id="tkB-JT-xcT"/>
@@ -329,4 +338,7 @@
             <point key="canvasLocation" x="1214" y="817"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YCL-Wx-vxG"/>
+    </inferredMetricsTieBreakers>
 </document>

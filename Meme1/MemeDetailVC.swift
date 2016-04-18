@@ -19,11 +19,12 @@ class MemeDetailVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController?.tabBar.hidden = true
+//        self.tabBarController?.tabBar.hidden = true
         
-        self.topTextField.placeholder = self.meme.topText.text
-        self.bottomTextField.placeholder = self.meme.bottomText.text
+        self.topTextField = self.meme.topText
+        self.bottomTextField = self.meme.bottomText
         self.memedImage.image = self.meme.memedImage
+        
         
     }
     

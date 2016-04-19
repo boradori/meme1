@@ -32,12 +32,11 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableCell") as! CustomTableCell
         let meme = memes[indexPath.row]
         
-        cell.topBottomText.text = "TOP: \(meme.topText.text!)" + " " + "Bottom: \(meme.bottomText.text!)"
+        cell.topText.text = "TOP: \(meme.topText)"
+        cell.bottomText.text = "BOTTOM: \(meme.bottomText)"
         cell.memedImage.image = meme.memedImage
         
         return cell
-        
-        
     }
     
     
@@ -46,4 +45,6 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         detailController.meme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
+    
+
 }

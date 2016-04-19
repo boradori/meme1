@@ -11,7 +11,10 @@ import UIKit
 
 class CustomTableCell: UITableViewCell {
     
-    @IBOutlet weak var topBottomText: UITextView!
+    
+    
+    @IBOutlet weak var topText: UILabel!
+    @IBOutlet weak var bottomText: UILabel!
     @IBOutlet weak var memedImage: UIImageView!
     
 }

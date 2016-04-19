@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct Meme {
-    let topText: UITextField
-    let bottomText: UITextField
+    let topText: String
+    let bottomText: String
     let image: UIImage
     let memedImage: UIImage
 }

@@ -171,18 +171,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme) // memes is an array in AppDelegate.swift
     }
-    
 
-    
-    func load(topText: String) {
-
-            topTextField.text = topText
-        
-        
-        
-    }
-    
-    
     
     // MARK: - Keyboard Functions
     func keyboardWillShow(notification: NSNotification) {

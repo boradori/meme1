@@ -10,11 +10,7 @@ import Foundation
 import UIKit
 
 class CustomTableCell: UITableViewCell {
-    
-    
-    
     @IBOutlet weak var topText: UILabel!
     @IBOutlet weak var bottomText: UILabel!
     @IBOutlet weak var memedImage: UIImageView!
-    
 }

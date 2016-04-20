@@ -24,8 +24,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(memes.count)
-        return self.memes.count
+        return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,17 +33,16 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         
         cell.topText.text = "TOP: \(meme.topText)"
         cell.bottomText.text = "BOTTOM: \(meme.bottomText)"
+        cell.memedImage.contentMode = .ScaleAspectFit
         cell.memedImage.image = meme.memedImage
         
         return cell
     }
     
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
-        detailController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
+        detailController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailController, animated: true)
     }
-    
 
 }

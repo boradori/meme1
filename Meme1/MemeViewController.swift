@@ -147,7 +147,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
     @IBAction func cancelEditMode(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage {
@@ -187,7 +187,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // MARK: - Keyboard Functions
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     

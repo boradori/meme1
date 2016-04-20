@@ -17,17 +17,15 @@ class MemeDetailVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        self.tabBarController?.tabBar.hidden = true
-
-        self.memedImage.image = self.meme.memedImage
-        
-        
+        view.backgroundColor = UIColor.blackColor()
+        tabBarController!.tabBar.hidden = true
+        memedImage.contentMode = .ScaleAspectFit
+        memedImage.image = meme.memedImage
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        super.viewWillDisappear(animated)
+        tabBarController!.tabBar.hidden = false
     }
 
 }

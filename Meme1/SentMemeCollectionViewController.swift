@@ -18,8 +18,8 @@ class SentMemeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-//        let dimension = (self.view.frame.size.width - (2 * space)) / 3
-        let dimension:CGFloat = self.view.frame.size.width >= self.view.frame.size.height ? (self.view.frame.size.width - (5 * space)) / 6.0 :  (self.view.frame.size.width - (2 * space)) / 3.0
+//        let dimension = (view.frame.size.width - (2 * space)) / 3
+        let dimension:CGFloat = view.frame.size.width >= view.frame.size.height ? (view.frame.size.width - (5 * space)) / 6.0 :  (view.frame.size.width - (2 * space)) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -34,13 +34,14 @@ class SentMemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomCollectionCell", forIndexPath: indexPath) as! CustomCollectionCell
         let meme = memes[indexPath.item]
         
+        cell.memedImage.contentMode = .ScaleAspectFit
         cell.memedImage.image = meme.memedImage
         
         return cell
@@ -48,9 +49,9 @@ class SentMemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
-        detailController.meme = self.memes[indexPath.item]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
+        detailController.meme = memes[indexPath.item]
+        navigationController!.pushViewController(detailController, animated: true)
     }
     
 }

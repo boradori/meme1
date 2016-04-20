@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeViewController.swift
 //  Meme1
 //
 //  Created by Youngsun Paik on 3/21/16.
@@ -42,6 +42,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func setupTextField(textField: UITextField, defaultText: String) {
         textField.borderStyle = .None
         textField.defaultTextAttributes = memeTextAttributes
+        textField.autocapitalizationType = .AllCharacters
         textField.textAlignment = .Center
         textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: memeTextAttributes)
         

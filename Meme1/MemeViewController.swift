@@ -30,6 +30,18 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         setupTextField(topTextField, defaultText: "TOP")
         setupTextField(bottomTextField, defaultText: "BOTTOM")
         
+//        meme = Meme(topText: "", bottomText: "", image: imagePickerView.image!, memedImage: generateMemedImage())
+
+        topTextField.text = meme.topText
+        bottomTextField.text = meme.bottomText
+        imagePickerView.image = meme.memedImage
+        
+//        imagePickerView.image = UIImage(named: "blankImage")
+        
+        
+        
+        
+        
         topTextField.delegate = self
         bottomTextField.delegate = self
         

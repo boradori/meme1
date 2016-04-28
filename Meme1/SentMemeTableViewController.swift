@@ -11,14 +11,14 @@ import UIKit
 
 class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var memes: [Meme]!
+    var memes: [Meme] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        memes = applicationDelegate.memes
         tableView.reloadData()
     }
     
@@ -31,8 +31,8 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableCell") as! CustomTableCell
         let meme = memes[indexPath.row]
         
-        cell.topText.text = "TOP: \(meme.topText)"
-        cell.bottomText.text = "BOTTOM: \(meme.bottomText)"
+        cell.topText.text = meme.topText
+        cell.bottomText.text = meme.bottomText
         cell.memedImage.contentMode = .ScaleAspectFit
         cell.memedImage.image = meme.memedImage
         

@@ -147,7 +147,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S4p-Dx-xqk" id="j8V-z2-mzA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-JE-grL">
@@ -328,6 +328,6 @@
         <image name="table" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GWc-86-xkD"/>
+        <segue reference="PyW-fJ-1aS"/>
     </inferredMetricsTieBreakers>
 </document>

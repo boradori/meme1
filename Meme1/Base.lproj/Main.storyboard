@@ -302,25 +302,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i7n-WQ-YFD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i7n-WQ-YFD">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i7n-WQ-YFD" firstAttribute="leading" secondItem="mCs-KK-kS5" secondAttribute="leadingMargin" constant="-20" id="Ejh-vH-em6"/>
-                            <constraint firstItem="i7n-WQ-YFD" firstAttribute="top" secondItem="sw5-xM-fZo" secondAttribute="bottom" id="Qse-aZ-gce"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="i7n-WQ-YFD" secondAttribute="trailing" constant="-20" id="RNy-IX-9rM"/>
-                            <constraint firstItem="uMh-rj-NAD" firstAttribute="top" secondItem="i7n-WQ-YFD" secondAttribute="bottom" id="ve9-kQ-12M"/>
+                            <constraint firstItem="i7n-WQ-YFD" firstAttribute="bottom" secondItem="uMh-rj-NAD" secondAttribute="top" id="8GR-Gz-n2h"/>
+                            <constraint firstItem="i7n-WQ-YFD" firstAttribute="top" secondItem="sw5-xM-fZo" secondAttribute="bottom" id="EQR-sQ-Wjf"/>
+                            <constraint firstAttribute="trailing" secondItem="i7n-WQ-YFD" secondAttribute="trailing" id="M8k-aG-a7m"/>
+                            <constraint firstItem="i7n-WQ-YFD" firstAttribute="leading" secondItem="mCs-KK-kS5" secondAttribute="leading" id="mRE-TD-1gi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0bg-40-KCl"/>
                     <connections>
                         <outlet property="memedImage" destination="i7n-WQ-YFD" id="4FI-FS-SDU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvT-mq-V39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="404"/>
+            <point key="canvasLocation" x="2365" y="338"/>
         </scene>
     </scenes>
     <resources>

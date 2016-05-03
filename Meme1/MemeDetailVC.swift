@@ -39,11 +39,8 @@ class MemeDetailVC: UIViewController {
         
         controller.meme = meme
         
-//        controller.bottomTextField.text = meme.bottomText
-//        controller.topTextField.text = meme.topText
-//        controller.imagePickerView.image = meme.memedImage
-        
-        presentViewController(controller, animated: true, completion: nil)
+        navigationController?.pushViewController(controller, animated: true) // to preserve navigation bar
+//        presentViewController(controller, animated: true, completion: nil)
     }
     
 }

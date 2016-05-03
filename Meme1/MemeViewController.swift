@@ -29,30 +29,38 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         setupTextField(topTextField, defaultText: "TOP")
         setupTextField(bottomTextField, defaultText: "BOTTOM")
-        
-//        meme = Meme(topText: "", bottomText: "", image: imagePickerView.image!, memedImage: generateMemedImage())
 
-        topTextField.text = meme.topText
-        bottomTextField.text = meme.bottomText
-        imagePickerView.image = meme.memedImage
+//        if meme != nil {
+//            topTextField.text = meme?.topText
+//            bottomTextField.text = meme?.bottomText
+//            imagePickerView.contentMode = .ScaleAspectFit
+//            imagePickerView.image = meme?.image
+//            tabBarController?.tabBar.hidden = true
+//            shareButton.enabled = true
+//        } else {
+//            shareButton.enabled = false
+//        }
         
-//        imagePickerView.image = UIImage(named: "blankImage")
-        
-        
-        
+        if let unwrappedMeme = meme {
+            topTextField.text = unwrappedMeme.topText
+            bottomTextField.text = unwrappedMeme.bottomText
+            imagePickerView.contentMode = .ScaleAspectFit
+            imagePickerView.image = unwrappedMeme.image
+            tabBarController?.tabBar.hidden = true
+            shareButton.enabled = true
+        } else {
+            shareButton.enabled = false // Share button should be disabled until image is picked
+        }
         
         
         topTextField.delegate = self
         bottomTextField.delegate = self
-        
-        // Share button should be disabled until image is picked
-        shareButton.enabled = false
-
     }
     
     // Setup textField function to make top and bottom textFields
     func setupTextField(textField: UITextField, defaultText: String) {
         textField.borderStyle = .None
+//        textField.text = defaultText
         textField.defaultTextAttributes = memeTextAttributes
         textField.autocapitalizationType = .AllCharacters
         textField.textAlignment = .Center
@@ -98,7 +106,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotifications() // NSNotificationCenter needs subscription to be used.
     }
-
     
     // Hide and show
     override func viewWillDisappear(animated: Bool) {
@@ -160,7 +167,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
     @IBAction func cancelEditMode(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+//        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func generateMemedImage() -> UIImage {
@@ -185,7 +193,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         appDelegate.memes.append(meme) // memes is an array in AppDelegate.swift
     }
 
-    
     // MARK: - Keyboard Functions
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {

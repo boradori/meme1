@@ -47,6 +47,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             imagePickerView.contentMode = .ScaleAspectFit
             imagePickerView.image = unwrappedMeme.image
             tabBarController?.tabBar.hidden = true
+            toolBar.hidden = false
             shareButton.enabled = true
         } else {
             shareButton.enabled = false // Share button should be disabled until image is picked
